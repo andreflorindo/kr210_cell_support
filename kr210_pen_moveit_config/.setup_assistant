@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: kr210_pen_support
+    relative_path: urdf/kr210_pen.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/kr210_pen.srdf
+  CONFIG:
+    author_name: Andre Florindo
+    author_email: a.m.mendesflorindo@student.tudelft.nl
+    generated_timestamp: 1567791545
