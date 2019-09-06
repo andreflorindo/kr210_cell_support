@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+	<xacro:macro name="kl2000_console_h400" params="prefix">
+	 <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/visual/kl2000_console_h400.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/collision/kl2000_console_h400_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+		</xacro:macro>
+</robot>

@@ -1,0 +1,9 @@
+<launch>
+  <include file="$(find kr210_pen_support)/launch/load_kr210_pen.launch"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen">
+    <param name="use_gui" value="True"/>
+    <rosparam file="$(find kr210_pen_support)/config/zeros.yaml"/>    
+  </node>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kr210_pen_support)/config/config.rviz" required="true" output="screen"/>
+</launch>

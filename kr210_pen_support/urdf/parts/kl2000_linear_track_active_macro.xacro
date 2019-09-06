@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <!-- LINK DEFINITIONS -->
+  <xacro:macro name="kl2000" params="prefix">
+    <!-- base link of complete linear track -->
+    <link name="${prefix}base_link"/>
+
+    <link name="${prefix}track">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/visual/kl2000_track.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/collision/kl2000_track_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}mobile_base">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/visual/kl2000_mobile_base.dae" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr210_pen_support/meshes/collision/kl2000_mobile_base_collision.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- JOINT DEFINITIONS -->
+    <joint name="${prefix}base_link_joint" type="fixed">
+      <origin xyz="-4.962 0 0.557" rpy="0 0 ${pi}"/>
+      <parent link="${prefix}base_link"/>
+      <child link="${prefix}track"/> 
+    </joint>
+
+    <joint name="${prefix}joint_e1" type="prismatic">    
+      <parent link="${prefix}track"/>
+      <child link="${prefix}mobile_base"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="0" lower="-4.3" upper="0" velocity="1.96"/>
+    </joint>
+
+  </xacro:macro>
+</robot>

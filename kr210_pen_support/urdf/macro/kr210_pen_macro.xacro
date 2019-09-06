@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://wiki.ros.org/xacro"> 
+  <!-- PROPERTIES -->
+  <!-- Dimensions of the work table -->
+  <xacro:property name="table_height" value="0.5"/>
+  <xacro:property name="table_top_thickness" value="0.085"/>  
+
+  <!-- INCLUDES -->
+  <!-- Linear Track (with mobile base) -->
+  <xacro:include filename="$(find kr210_pen_support)/urdf/parts/kl2000_linear_track_macro.xacro"/>
+  <!-- Robot console (booster frame) -->
+  <xacro:include filename="$(find kr210_pen_support)/urdf/parts/kl2000_console_h400_macro.xacro"/>
+  <!-- Kuka KR210R2700extra robot -->
+  <xacro:include filename="$(find kr210_robot_support)/urdf/macros/kr210_macro.xacro"/>
+  <!-- Welding Table -->
+  <xacro:include filename="$(find kr210_pen_support)/urdf/parts/forster_welding_table_macro.xacro"/>
+
+  <!-- MACRO START  -->
+  <xacro:macro name="kr210_no_eef_cell" params="prefix">
+    <!-- DEFINITIONS -->
+    <xacro:kl2000 prefix="${prefix}kl2000_"/>  
+    <xacro:kl2000_console_h400 prefix="${prefix}console_"/>
+    <xacro:kr210 prefix="${prefix}"/>
+    <xacro:kr1_hc1000_r1280 prefix="${prefix}kr1_"/>
+    <xacro:forster_welding_table prefix="${prefix}table_"/>
+
+    <!-- JOINTS -->
+    <!-- Console to Linear track -->
+    <joint name="${prefix}console_base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
+      <parent link="${prefix}kl2000_mobile_base"/>
+      <child link="${prefix}console_base_link"/>     
+      <origin xyz="0 0 0" rpy="0 0 0"/> 
+    </joint>
+
+    <!-- Robot to console  -->
+    <joint name="${prefix}kr210_base_link_to_${prefix}console_base_link" type="fixed">     
+      <parent link="${prefix}console_base_link"/>
+      <child link="${prefix}kr210_base_link"/>     
+      <origin xyz="0 0 0.4" rpy="0 0 ${-pi/2}"/> 
+    </joint>
+
+    <!-- Welding table to linear track -->   
+    <joint name="${prefix}base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
+      <parent link="${prefix}kl2000_base_link"/>
+      <child link="${prefix}table_base_link"/>     
+      <origin xyz="1.264 0.919 ${(table_height - table_top_thickness)/2}" rpy="0 0 0"/>       
+    </joint>
+
+  </xacro:macro>
+</robot>
