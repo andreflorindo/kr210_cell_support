@@ -4,55 +4,55 @@
   <xacro:include filename="$(find kuka_resources)/urdf/common_materials.xacro"/>
   <!-- Defining variables -->
 
-	<!-- min:410 mm max:1200 mm Forster HW4002-->
-  <xacro:property name="table_height" value="0.78"/>
-  <xacro:property name="table_width" value="1.2"/>
-  <xacro:property name="table_length" value="2.5"/>
-  <xacro:property name="table_top_thickness" value="0.085"/>
-  <xacro:property name="table_top_overhang" value="0.2"/>
+  <!-- min:410 mm max:1200 mm Forster HW4002-->
+  <xacro:property name="table_height" value="0.78"/> <!--0.78-->
+  <xacro:property name="table_width" value="1.2"/> <!--1.2-->
+  <xacro:property name="table_length" value="2.5"/> <!--2.5-->
+  <xacro:property name="table_top_thickness" value="0.085"/> <!--0.085-->
+  <xacro:property name="table_top_overhang" value="0.2"/> <!--0.2-->
 
 
-	<xacro:macro name="forster_welding_table" params="prefix">
-		<!-- LINK DEFINITIONS -->
-		<link name="${prefix}base_link">
-			<visual>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-					<geometry>
-						<box size ="${table_width-table_top_overhang} ${table_length-table_top_overhang} ${table_height - table_top_thickness}"/>
-					</geometry>
-          <material name="">
-            <color rgba="${colour_kuka_anthracite_gray}"/>
-          </material>
-			</visual>
-			<collision>
-				<origin xyz="0 0 0" rpy="0 0 0"/>
-					<geometry>
-						<box size="${table_width-table_top_overhang} ${table_length-table_top_overhang} ${table_height - table_top_thickness}"/>
-					</geometry>
-			</collision>
-		</link>
+  <xacro:macro name="forster_welding_table" params="prefix">
+    <!-- LINK DEFINITIONS -->
+    <link name="${prefix}base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size ="${table_width-table_top_overhang} ${table_length-table_top_overhang} ${table_height - table_top_thickness}"/>
+        </geometry>
+        <material name="">
+          <color rgba="${colour_kuka_anthracite_gray}"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="${table_width-table_top_overhang} ${table_length-table_top_overhang} ${table_height - table_top_thickness}"/>
+        </geometry>
+      </collision>
+    </link>
 
     <!-- Geometry model table top -->
-    <link name="${prefix}table_top">  
-    <visual>
+    <link name="${prefix}table_top">
+      <visual>
         <origin xyz="${table_length/2} ${-table_top_thickness/2} ${table_width/2}" rpy="0 0 0"/>
-          <geometry>
-            <box size ="${table_length} ${-table_top_thickness} ${table_width}"/>
-          </geometry>
-          <material name="">
-            <color rgba="${colour_kuka_anthracite_gray}"/>
-          </material>
+        <geometry>
+          <box size ="${table_length} ${-table_top_thickness} ${table_width}"/>
+        </geometry>
+        <material name="">
+          <color rgba="${colour_kuka_anthracite_gray}"/>
+        </material>
       </visual>
       <collision>
         <origin xyz="${table_length/2} ${-table_top_thickness/2} ${table_width/2}" rpy="0 0 0"/>
         <geometry>
-            <box size ="${table_length} ${table_top_thickness} ${table_width}"/>
+          <box size ="${table_length} ${table_top_thickness} ${table_width}"/>
         </geometry>
       </collision>
-    </link> 
+    </link>
 
-<!-- CAD model table top -->
-<!-- 		<link name="${prefix}table_top">	
+    <!-- CAD model table top -->
+    <!-- 		<link name="${prefix}table_top">	
       <visual>
       	<origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -67,13 +67,13 @@
       </collision>
     </link> -->
 
-		 <!-- JOINT DEFINITIONS -->
+    <!-- JOINT DEFINITIONS -->
     <joint name="${prefix}base_link_joint" type="fixed">
       <origin xyz="${-table_width/2} ${-table_length/2} ${(table_height/2) + (table_top_thickness/2)}" rpy="${pi/2} 0 ${pi/2}"/>
       <parent link="${prefix}base_link"/>
       <child link="${prefix}table_top"/> 
     </joint>
 
-		</xacro:macro>
+  </xacro:macro>
 
 </robot>

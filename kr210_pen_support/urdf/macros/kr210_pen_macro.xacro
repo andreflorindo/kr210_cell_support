@@ -17,12 +17,11 @@
   <xacro:include filename="$(find kr210_pen_support)/urdf/parts/forster_welding_table_macro.xacro"/>
 
   <!-- MACRO START  -->
-  <xacro:macro name="kr210_no_eef_cell" params="prefix">
+  <xacro:macro name="kr210_pen" params="prefix">
     <!-- DEFINITIONS -->
     <xacro:kl2000 prefix="${prefix}kl2000_"/>  
     <xacro:kl2000_console_h400 prefix="${prefix}console_"/>
     <xacro:kr210 prefix="${prefix}"/>
-    <xacro:kr1_hc1000_r1280 prefix="${prefix}kr1_"/>
     <xacro:forster_welding_table prefix="${prefix}table_"/>
 
     <!-- JOINTS -->
@@ -44,7 +43,7 @@
     <joint name="${prefix}base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
       <parent link="${prefix}kl2000_base_link"/>
       <child link="${prefix}table_base_link"/>     
-      <origin xyz="1.264 0.919 ${(table_height - table_top_thickness)/2}" rpy="0 0 0"/>       
+      <origin xyz="-1.264 1.419 ${(table_height - table_top_thickness)/2}" rpy="0 0 ${-pi/2}"/>       
     </joint>
 
   </xacro:macro>
