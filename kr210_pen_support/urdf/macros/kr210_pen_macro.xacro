@@ -15,6 +15,8 @@
   <xacro:include filename="$(find kr210_robot_support)/urdf/macros/kr210_macro.xacro"/>
   <!-- Welding Table -->
   <xacro:include filename="$(find kr210_pen_support)/urdf/parts/forster_welding_table_macro.xacro"/>
+  <!-- Penholder End Effector -->
+  <xacro:include filename="$(find kr210_pen_support)/urdf/parts/penholder_macro.xacro"/>
 
   <!-- MACRO START  -->
   <xacro:macro name="kr210_pen" params="prefix">
@@ -23,6 +25,7 @@
     <xacro:kl2000_console_h400 prefix="${prefix}console_"/>
     <xacro:kr210 prefix="${prefix}"/>
     <xacro:forster_welding_table prefix="${prefix}table_"/>
+    <xacro:penholder prefix="${prefix}penholder_"/>
 
     <!-- JOINTS -->
     <!-- Console to Linear track -->
@@ -45,6 +48,14 @@
       <child link="${prefix}table_base_link"/>     
       <origin xyz="-1.264 1.719 ${(table_height - table_top_thickness)/2}" rpy="0 0 ${-pi/2}"/>       
     </joint>
+
+    <!-- End effector to robot --> 
+    <joint name="${prefix}penholder_eef_base_link_to_${prefix}quick_release_base_link" type="fixed">     
+      <parent link="${prefix}kr210_qr_tool0"/>
+      <child link="${prefix}penholder_base_link"/>     
+      <origin xyz="0 0 0.02" rpy="${pi} 0 ${pi*(5/6)}"/>       
+    </joint>   
+
 
   </xacro:macro>
 </robot>

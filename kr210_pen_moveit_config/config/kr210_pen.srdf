@@ -21,7 +21,7 @@
         <joint name="kr210_joint_a5" value="0" />
         <joint name="kr210_joint_a6" value="0" />
     </group_state>
-    <group_state name="close_top_table" group="manipulator">
+    <group_state name="above-table" group="manipulator">
         <joint name="kr210_joint_a1" value="0.2676" />
         <joint name="kr210_joint_a2" value="-0.7381" />
         <joint name="kr210_joint_a3" value="1.7771" />
