@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>kr210_robot_support</name>
+  <version>0.0.1</version>
+  <description> ROS package for robot definition of Kuka KR210 with various endeffectors at TU delft DASML Automated Composite Cell  </description>
+
+  <maintainer email="a.m.mendesflorindo@student.tudelft.com">Andre Florindo</maintainer>
+
+  <license>BSD</license>
+ 
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>kuka_kr210_support</run_depend>
+  
+  <export>
+    <architecture_independent />
+  </export>
+</package>

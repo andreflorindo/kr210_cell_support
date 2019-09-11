@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+	<!-- INCLUDE DEFINITIONS -->
+        <xacro:include filename="$(find kuka_kr210_support)/urdf/kr210r2700extra_macro.xacro"/>
+
+	<!-- MACRO STARTS HERE -->
+	<xacro:macro name="kr210" params="prefix">
+		<!--refer to the robot xacro-->
+		<xacro:kuka_kr210r2700extra prefix="${prefix}kr210_"/>
+		<!-- LINK DEFINITIONS -->
+		<link name="${prefix}quickrelease_base_link">
+	      <visual>
+	        <origin xyz="0 0 0" rpy="0 0 0"/>
+	          <geometry>
+	            <mesh filename="package://kr210_robot_support/meshes/visual/KUKA_Quickrelease_Base_visual.dae" scale="0.001 0.001 0.001"/>
+	          </geometry>          
+	      </visual>
+	      <collision>
+	        <origin xyz="0 0 0" rpy="0 0 0"/>       
+	          <geometry>
+	            <mesh filename="package://kr210_robot_support/meshes/collision/KUKA_Quickrelease_Base_collision.STL" scale="0.001 0.001 0.001"/>
+	          </geometry>
+	      </collision>
+	    </link>
+
+	    <!-- Defining a new tool0 on end of quick release -->
+	    <link name="${prefix}kr210_qr_tool0"/>
+
+	    <!-- JOINT DEFINITIONS -->
+	    <joint name="${prefix}kr210_tool0_to_{prefix}quickrelease_base_link" type="fixed">     
+      		<parent link="${prefix}kr210_tool0"/>
+      		<child link="${prefix}quickrelease_base_link"/>     
+      		<origin xyz="0 0 0" rpy="${pi/2} 0 0"/> 
+    	</joint>
+
+
+    	\<!-- Moving the tool0 frame to the end of the quickrelease (new flange of the robot) -->
+    	<joint name="tool0_to_quickrelease_base" type="fixed">
+    		<parent link="${prefix}quickrelease_base_link"/>
+      		<child link="${prefix}kr210_qr_tool0"/>     
+      		<origin xyz="0 0.05 0" rpy="-${pi/2} 0 0"/> 
+    	</joint>
+
+	</xacro:macro>
+</robot>
