@@ -43,7 +43,7 @@
     <joint name="${prefix}base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
       <parent link="${prefix}kl2000_base_link"/>
       <child link="${prefix}table_base_link"/>     
-      <origin xyz="-1.264 1.719 ${(table_height - table_top_thickness)/2}" rpy="0 0 ${-pi/2}"/>       
+      <origin xyz="-1.264 1.719 ${(table_height - table_top_thickness)/2}" rpy="0 0 ${pi/2}"/>       
     </joint>
 
   </xacro:macro>
