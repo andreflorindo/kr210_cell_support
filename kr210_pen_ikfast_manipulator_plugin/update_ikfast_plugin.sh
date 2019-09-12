@@ -1,0 +1,1 @@
+rosrun moveit_kinematics create_ikfast_moveit_plugin.py kr210_pen manipulator kr210_pen_ikfast_manipulator_plugin /home/andre/workspaces/vsl_msc_project_ws/src/kr210_cell_support/kr210_pen_ikfast_manipulator_plugin/src/kr210_pen_manipulator_ikfast_solver.cpp
