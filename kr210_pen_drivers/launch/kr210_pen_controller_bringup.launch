@@ -21,9 +21,11 @@
       listen_port: 49152
   </rosparam>
   <!-- Putting /controller_joint_names on param server -->
-  <rosparam file="$(find kr210_pen_controller)/config/kr210_controller_joint_names.yaml" />
+  <rosparam file="$(find kr210_pen_drivers)/config/kr210_controller_joint_names.yaml" />
+  <!-- Putting /robot_description on param server  -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find kr210_pen_support)/urdf/kr210_pen.xacro'"/>
   <!-- Putting hardware controller settings on param server -->
-  <rosparam file="$(find kr210_pen_controller)/config/kr210_hardware_controllers.yaml"/>
+  <rosparam file="$(find kr210_pen_drivers)/config/kr210_hardware_controllers.yaml"/>
 
   <!-- ######################### -->
   <!-- ##### STARTING NODES #### -->
