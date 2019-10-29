@@ -31,7 +31,7 @@
     </group_state> -->
 
     <group_state name="home" group="manipulator">
-        <joint name="kr210_joint_a1" value="0" />
+        <joint name="kr210_joint_a1" value="1.57" />
         <joint name="kr210_joint_a2" value="-2.08" />
         <joint name="kr210_joint_a3" value="2.08" />
         <joint name="kr210_joint_a4" value="0" />
