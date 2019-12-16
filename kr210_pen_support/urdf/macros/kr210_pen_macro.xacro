@@ -14,7 +14,7 @@
   <!-- Kuka KR210R2700extra robot -->
   <xacro:include filename="$(find kuka_kr210_support)/urdf/kr210r2700extra_macro.xacro"/>
   <!-- Welding Table -->
-  <xacro:include filename="$(find kr210_pen_support)/urdf/parts/forster_welding_table_macro.xacro"/>
+  <!-- <xacro:include filename="$(find kr210_pen_support)/urdf/parts/forster_welding_table_macro.xacro"/> -->
   <!-- Penholder End Effector -->
   <xacro:include filename="$(find kr210_eef_support)/urdf/penholder_macro.xacro"/>
 
@@ -24,7 +24,7 @@
     <xacro:kl2000 prefix="${prefix}kl2000_"/>  
     <xacro:kl2000_console_h400 prefix="${prefix}console_"/>
     <xacro:kuka_kr210r2700extra prefix="${prefix}kr210_"/>
-    <xacro:forster_welding_table prefix="${prefix}table_"/>
+    <!-- <xacro:forster_welding_table prefix="${prefix}table_"/> -->
     <xacro:penholder prefix="${prefix}penholder_"/>
 
     <!-- JOINTS -->
@@ -43,12 +43,11 @@
     </joint>
 
     <!-- Welding table to linear track -->   
-    <joint name="${prefix}table_base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
+    <!-- <joint name="${prefix}table_base_link_to_${prefix}kl2000_mobile_base" type="fixed">     
       <parent link="${prefix}kl2000_base_link"/>
       <child link="${prefix}table_base_link"/>     
      <origin xyz="-1.264 1.719 ${(table_height - table_top_thickness)/2}" rpy="0 0 ${-pi/2}"/>       
-      <!-- <origin xyz="1.264 0.919 ${(table_height - table_top_thickness)/2}" rpy="0 0 0"/>   -->
-    </joint>
+    </joint> -->
 
     <!-- End effector to robot --> 
     <joint name="${prefix}penholder_base_link_to_${prefix}kr210_tool0" type="fixed">     

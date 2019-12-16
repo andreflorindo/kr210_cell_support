@@ -36,8 +36,8 @@
     <disable_collisions link1="console_base_link" link2="kr210_link_1" reason="Never" />
     <disable_collisions link1="console_base_link" link2="kr210_link_2" reason="Never" />
     <disable_collisions link1="console_base_link" link2="kr210_link_3" reason="Never" />
-    <disable_collisions link1="console_base_link" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="console_base_link" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="console_base_link" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="console_base_link" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kl2000_mobile_base" link2="kl2000_track" reason="Adjacent" />
     <disable_collisions link1="kl2000_mobile_base" link2="kr210_base_link" reason="Never" />
     <disable_collisions link1="kl2000_mobile_base" link2="kr210_link_1" reason="Never" />
@@ -46,8 +46,8 @@
     <disable_collisions link1="kl2000_mobile_base" link2="kr210_link_4" reason="Never" />
     <disable_collisions link1="kl2000_mobile_base" link2="kr210_link_5" reason="Never" />
     <disable_collisions link1="kl2000_mobile_base" link2="kr210_link_6" reason="Never" />
-    <disable_collisions link1="kl2000_mobile_base" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="kl2000_mobile_base" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kl2000_mobile_base" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="kl2000_mobile_base" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kl2000_track" link2="kr210_base_link" reason="Never" />
     <disable_collisions link1="kl2000_track" link2="kr210_link_1" reason="Never" />
     <disable_collisions link1="kl2000_track" link2="kr210_link_2" reason="Never" />
@@ -55,31 +55,31 @@
     <disable_collisions link1="kl2000_track" link2="kr210_link_4" reason="Never" />
     <disable_collisions link1="kl2000_track" link2="kr210_link_5" reason="Never" />
     <disable_collisions link1="kl2000_track" link2="kr210_link_6" reason="Never" />
-    <disable_collisions link1="kl2000_track" link2="table_base_link" reason="Adjacent" />
-    <disable_collisions link1="kl2000_track" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kl2000_track" link2="table_base_link" reason="Adjacent" />
+    <disable_collisions link1="kl2000_track" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kr210_base_link" link2="kr210_link_1" reason="Adjacent" />
     <disable_collisions link1="kr210_base_link" link2="kr210_link_2" reason="Never" />
     <disable_collisions link1="kr210_base_link" link2="kr210_link_3" reason="Never" />
-    <disable_collisions link1="kr210_base_link" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="kr210_base_link" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kr210_base_link" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="kr210_base_link" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kr210_link_1" link2="kr210_link_2" reason="Adjacent" />
     <disable_collisions link1="kr210_link_1" link2="kr210_link_3" reason="Never" />
     <disable_collisions link1="kr210_link_1" link2="kr210_link_4" reason="Never" />
-    <disable_collisions link1="kr210_link_1" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="kr210_link_1" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kr210_link_1" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="kr210_link_1" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kr210_link_2" link2="kr210_link_3" reason="Adjacent" />
-    <disable_collisions link1="kr210_link_2" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="kr210_link_2" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kr210_link_2" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="kr210_link_2" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kr210_link_3" link2="kr210_link_4" reason="Adjacent" />
     <disable_collisions link1="kr210_link_3" link2="kr210_link_5" reason="Never" />
     <disable_collisions link1="kr210_link_3" link2="kr210_link_6" reason="Never" />
     <disable_collisions link1="kr210_link_3" link2="penholder_base_link" reason="Never" />
-    <disable_collisions link1="kr210_link_3" link2="table_base_link" reason="Never" />
-    <disable_collisions link1="kr210_link_3" link2="table_table_top" reason="Never" />
+    <!-- <disable_collisions link1="kr210_link_3" link2="table_base_link" reason="Never" />
+    <disable_collisions link1="kr210_link_3" link2="table_table_top" reason="Never" /> -->
     <disable_collisions link1="kr210_link_4" link2="kr210_link_5" reason="Adjacent" />
     <disable_collisions link1="kr210_link_4" link2="kr210_link_6" reason="Never" />
     <disable_collisions link1="kr210_link_5" link2="kr210_link_6" reason="Adjacent" />
     <disable_collisions link1="kr210_link_5" link2="penholder_base_link" reason="Never" />
     <disable_collisions link1="kr210_link_6" link2="penholder_base_link" reason="Adjacent" />
-    <disable_collisions link1="table_base_link" link2="table_table_top" reason="Adjacent" />
+    <!-- <disable_collisions link1="table_base_link" link2="table_table_top" reason="Adjacent" /> -->
 </robot>
