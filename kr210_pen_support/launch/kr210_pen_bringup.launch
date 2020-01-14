@@ -19,6 +19,14 @@
     <rosparam command="load" file="$(find kr210_pen_moveit_config)/config/kinematics.yaml"/>
   </group>
 
+  <rosparam param="controller_joint_names">[
+  'kr210_joint_a1',
+  'kr210_joint_a2',
+  'kr210_joint_a3',
+  'kr210_joint_a4',
+  'kr210_joint_a5',
+  'kr210_joint_a6']</rosparam>
+
   <group if="$(arg sim)">
     <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
     <rosparam param="initial_joint_state">[0.0, -1.57, 1.57, 0.0, 0.0, 0.0]</rosparam>
