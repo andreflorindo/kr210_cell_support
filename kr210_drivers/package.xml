@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>kr210_pen_drivers</name>
+  <name>kr210_drivers</name>
   <version>1.0.0</version>
   <description>The kr210 pen drivers package</description>
 

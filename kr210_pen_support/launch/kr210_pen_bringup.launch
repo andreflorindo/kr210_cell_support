@@ -1,0 +1,51 @@
+<launch>
+  <arg name="sim" default="true"/>
+  <arg name="robot_ip" default="" unless="$(arg sim)"/>
+  <arg name="robot_description" default="robot_description"/>
+  
+  <!-- Load universal robot description format (URDF) -->
+  <param name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find kr210_pen_support)/urdf/kr210_pen.xacro'" /> 
+
+  <!-- The semantic description that corresponds to the URDF -->
+  <param name="$(arg robot_description)_semantic" textfile="$(find kr210_pen_moveit_config)/config/kr210_pen.srdf" />
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group name="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find kr210_pen_moveit_config)/config/joint_limits.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group name="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find kr210_pen_moveit_config)/config/kinematics.yaml"/>
+  </group>
+
+  <group if="$(arg sim)">
+    <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
+    <rosparam param="initial_joint_state">[0.0, -1.57, 1.57, 0.0, 0.0, 0.0]</rosparam>
+  </group>
+
+  <group unless="$(arg sim)"> 
+    <remap from="/follow_joint_trajectory/status" to="/joint_trajectory_action/status" /> -->
+    <remap from="/follow_joint_trajectory/feedback" to="/joint_trajectory_action/feedback" /> -->
+    <remap from="/follow_joint_trajectory/result" to="/joint_trajectory_action/result" /> -->
+    <remap from="/follow_joint_trajectory/goal" to="/joint_trajectory_action/goal" /> -->
+    <remap from="/follow_joint_trajectory/cancel" to="/joint_trajectory_action/cancel" /> -->
+
+    <include file="$(find kr210_drivers)/launch/kr210_controller_bringup.launch"/>
+
+    <param name="move_group/trajectory_execution/execution_duration_monitoring" value="false"/>
+
+    <node pkg="tf2_ros" type="buffer_server" name="tf2_buffer_server" output="screen">
+      <param name="buffer_size" value="120.0"/>
+    </node>
+  </group>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" output="screen" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+
+</launch>
+
+
+
+
+
