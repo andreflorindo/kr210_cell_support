@@ -6,21 +6,6 @@
 
     <xacro:macro name="penholder" params="prefix">
 
-        <!--<link name="${prefix}base_link">
-            <visual>
-                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-                <geometry>
-                    <mesh filename="package://kr210_pen_support/meshes/visual/KUKA_Quickrelease_Flange_visual.dae" scale="0.001 0.001 0.001"/> 
-                </geometry>
-            </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-                <geometry>
-                    <mesh filename="package://kr210_pen_support/meshes/collision/KUKA_Quickrelease_Flange_collision.stl" scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
-        </link> -->
-
         <link name="${prefix}base_link">
             <visual>
                 <origin xyz="0 0 ${eef_bottom_distance_from_center}" rpy="${-pi/2} 0 0"/>
@@ -37,12 +22,6 @@
         </link>
 
         <link name="${prefix}tool_tip"/>
-
-        <!-- <joint name="${prefix}eef_base_link_to_${prefix}base_link" type="fixed">
-            <parent link= "${prefix}base_link"/>
-            <child link= "${prefix}eef_base_link"/>
-            <origin rpy="0 0 1" xyz="${-pi/2} 0 0"/>
-        </joint> -->
 
         <joint name="${prefix}tool_tip_to_${prefix}base_link" type="fixed">
             <parent link= "${prefix}base_link"/>
