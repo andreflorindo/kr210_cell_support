@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find kr210_atl_support)/launch/kr210_atl_bringup.launch"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find kr210_atl_support)/config/config.rviz" required="true" output="screen"/>
+</launch>

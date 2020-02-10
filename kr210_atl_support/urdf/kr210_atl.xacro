@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<robot name="kr210_atl" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:include filename="$(find kr210_atl_support)/urdf/macros/kr210_atl_macro.xacro"/>  
+  <xacro:kr210_atl prefix=""/>
+  
+</robot>
