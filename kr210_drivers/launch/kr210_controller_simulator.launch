@@ -23,7 +23,7 @@
   <!-- Putting /controller_joint_names on param server -->
   <rosparam file="$(find kr210_drivers)/config/kr210_controller_joint_names.yaml" />
   <!-- Putting /robot_description on param server  -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find kr210_pen_support)/urdf/kr210_pen.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find kr210_atl_support)/urdf/kr210_atl.xacro'"/>
   <!-- Putting hardware controller settings on param server -->
   <rosparam file="$(find kr210_drivers)/config/kr210_hardware_controllers.yaml"/>
 
